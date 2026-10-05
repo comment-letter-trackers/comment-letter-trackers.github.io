@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEC Comment-Letter Trackers</title>
+<meta name="description" content="Public trackers of the comment files on recent SEC rulemakings, orders and rule filings. Each one reads every letter on its file and records what the letter asks for, with the evidence behind each call.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7f9;--surface:#fff;--ink:#0f1720;--ink2:#4a5562;--mute:#7c8794;--line:#e3e7ec;
+--hero1:#0f2a4a;--hero2:#16486f;--heroink:#fff;
+--k-proposal:#2a6fdb;--k-order:#c7781a;--k-sro:#1f8a5b;--tz:#0e7c86;--me:#6b46c1;--open:#16794a;--shadow:0 1px 2px rgba(15,23,32,.06),0 8px 24px rgba(15,23,32,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0c1117;--surface:#141b23;--ink:#e8edf2;--ink2:#a9b4c0;--mute:#7b8794;--line:#25303b;
+--hero1:#0b1f36;--hero2:#123a5a;--k-proposal:#6ea2f5;--k-order:#e6a24f;--k-sro:#4fc28c;--tz:#39b7c2;--me:#a587ee;--open:#4fc28c;--shadow:none}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}
+a{color:inherit}.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:var(--heroink);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;background:
+radial-gradient(600px 300px at 85% 0%,rgba(255,255,255,.10),transparent 60%),
+repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{padding-top:64px;padding-bottom:88px;position:relative;z-index:1}
+.eyebrow{display:inline-block;font:600 12px/1 Inter;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.12);padding:7px 10px;border-radius:999px}
+h1{font:700 clamp(34px,5.5vw,56px)/1.05 Inter,sans-serif;letter-spacing:-.03em;margin:18px 0 14px}
+.hero p{max-width:640px;font-size:17px;color:rgba(255,255,255,.82);margin:0 0 10px}.hero .by a{color:#fff}
+.hero .by{font-size:14px;color:rgba(255,255,255,.7)}
+.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:-40px 0 24px;position:relative;z-index:2;
+background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow)}
+.grp{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.grp>span{font-size:12px;color:var(--mute);margin-right:4px}
+.bar button{font:500 13px Inter,sans-serif;border:1px solid var(--line);background:transparent;color:var(--ink2);border-radius:999px;padding:6px 12px;cursor:pointer}
+.bar button[aria-pressed=true]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.bar .count{margin-left:auto;font-size:13px;color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;padding-bottom:40px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px)}
+.card[hidden]{display:none}
+.card .top{height:4px;background:var(--k)}
+.card .in{padding:20px 20px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tag{font:600 11px/1 Inter;letter-spacing:.06em;text-transform:uppercase;color:var(--k);background:color-mix(in srgb,var(--k) 12%,transparent);padding:6px 8px;border-radius:6px}
+.id{font:500 13px 'JetBrains Mono',monospace;color:var(--mute)}
+.card h2{font:650 21px/1.2 Inter,sans-serif;letter-spacing:-.01em;margin:4px 0 0}
+.card p{margin:0;color:var(--ink2);font-size:14.5px}
+.rel{font:12.5px 'JetBrains Mono',monospace;color:var(--mute)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid var(--line);padding:12px 20px;font-size:13px}
+.av{display:inline-flex;align-items:center;gap:8px;color:var(--ink2)}
+.av b{width:26px;height:26px;border-radius:50%;display:inline-grid;place-items:center;font:600 10.5px Inter;color:#fff;background:var(--c)}
+.st{display:inline-flex;align-items:center;gap:6px;font-weight:500;color:var(--mute)}.st i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.st.open{color:var(--open)}
+.go{display:inline-flex;align-items:center;gap:6px;font-weight:600;text-decoration:none;color:var(--ink)}
+.go:after{content:"\2192";transition:transform .15s}.card:hover .go:after{transform:translateX(3px)}
+.x{font-size:13px;color:var(--mute)}.x a{color:var(--ink2)}
+footer{border-top:1px solid var(--line);padding:24px 0 56px;color:var(--mute);font-size:13.5px}
+
+.hero .people{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hero .pp{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+border-radius:999px;padding:6px 14px 6px 6px;text-decoration:none;color:#fff;font-size:13.5px}
+.hero .pp:hover{background:rgba(255,255,255,.14)}
+.hero .pp b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:600 11px Inter;background:var(--c);color:#fff}
+.hero .pp span{color:rgba(255,255,255,.65)}
+.featured{position:relative;background:var(--surface);border:1px solid color-mix(in srgb,var(--open) 35%,var(--line));border-radius:18px;
+box-shadow:var(--shadow);overflow:hidden;margin:0 0 30px;display:grid;grid-template-columns:1fr auto;gap:8px 32px;align-items:center;padding:26px 28px}
+.featured:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--open)}
+.featured .lbl{font:600 11.5px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--open)}
+.featured h2{font:700 26px/1.15 Inter,sans-serif;letter-spacing:-.02em;margin:6px 0 6px}
+.featured h2 small{font:500 14px 'JetBrains Mono',monospace;color:var(--mute);margin-left:8px;letter-spacing:0}
+.featured p{margin:0;color:var(--ink2);max-width:640px}
+.featured .right{text-align:right;display:grid;gap:12px;justify-items:end}
+.featured .st{font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--surface);text-decoration:none;font-weight:600;padding:10px 16px;border-radius:10px;white-space:nowrap}
+.featured[hidden]{display:none}
+.empty{padding:28px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:14px;margin-bottom:40px}
+.card{scroll-margin-top:24px}
+.card.flash{outline:2px solid var(--k);outline-offset:3px}
+@media (max-width:760px){.featured{grid-template-columns:1fr}.featured .right{justify-items:start;text-align:left}}
+
+.band{margin-top:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px 18px 30px}
+.band .bh{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.7);margin-bottom:10px}
+.band .lg{display:flex;gap:16px;flex-wrap:wrap}.band .lg i{display:inline-block;vertical-align:-1px;margin-right:6px}
+.lg .d{width:10px;height:10px;border-radius:50%;background:#fff}
+.lg .k{width:9px;height:9px;transform:rotate(45deg);border:2px solid #fff;background:transparent}
+.axis{display:grid;grid-template-columns:200px 1fr;gap:0 14px}
+.axis .ov{grid-column:2;position:relative}
+.months-row{grid-column:2;position:relative;height:22px;border-bottom:1px solid rgba(255,255,255,.2)}
+.months-row span{position:absolute;top:0;font:500 11.5px 'JetBrains Mono',monospace;color:rgba(255,255,255,.65);transform:translateX(6px)}
+.months-row span:before{content:"";position:absolute;left:-6px;top:0;height:200px;border-left:1px dashed rgba(255,255,255,.12)}
+.lanes{grid-column:1/-1;display:grid}
+.lane{display:grid;grid-template-columns:200px 1fr;gap:0 14px;align-items:center;min-height:30px;cursor:pointer;border-radius:8px;text-decoration:none;color:#fff;transition:opacity .15s,background .15s}
+.lane:hover{background:rgba(255,255,255,.07)}
+.lane.dim{opacity:.28}
+.lane .nm{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-left:8px}
+.lane .nm small{font:11px 'JetBrains Mono',monospace;color:rgba(255,255,255,.55);margin-left:6px}
+.track{position:relative;height:30px}
+.track .ln{position:absolute;top:50%;height:2px;background:color-mix(in srgb,var(--c) 70%,transparent);transform:translateY(-50%)}
+.track .iss{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--c);transform:translate(-50%,-50%);box-shadow:0 0 0 3px rgba(0,0,0,.25)}
+.track .iss.approx{background:var(--hero1);border:2px solid var(--c);width:13px;height:13px;box-shadow:none}
+.track .ddl{position:absolute;top:50%;width:10px;height:10px;border:2px solid var(--c);background:var(--hero1);transform:translate(-50%,-50%) rotate(45deg)}
+.track .open-end{position:absolute;top:50%;height:2px;background:repeating-linear-gradient(90deg,var(--c) 0 4px,transparent 4px 8px);transform:translateY(-50%)}
+.today{position:absolute;top:22px;bottom:0;width:0;border-left:2px solid #fbbf24;z-index:2;pointer-events:none}
+.today span{position:absolute;bottom:-20px;left:-18px;font:600 10.5px Inter;color:#fbbf24;letter-spacing:.06em;text-transform:uppercase}
+.axiswrap{position:relative}
+.hero .wrap{padding-bottom:84px}
+@media (max-width:640px){.axis,.lane{grid-template-columns:1fr}.months-row,.axis .ov{grid-column:1}.lane{min-height:0;padding:4px 0}
+.lane .nm{padding-left:2px;font-size:12px;color:rgba(255,255,255,.8)}.track{height:20px}.band{padding:14px 12px 30px}.months-row span{font-size:10px}
+.hero .pp span{display:none}}
+:root{--tz-band:#5eead4;--me-band:#c4b5fd}</style></head>
+<body><section class="hero"><div class="wrap">
+<span class="eyebrow">Comment-letter trackers</span><h1>SEC Comment-Letter Trackers</h1>
+<p>Public trackers of the comment files on recent SEC rulemakings, orders and rule filings. Each one reads every letter on its file and records what the letter asks for, with the evidence behind each call.</p><div class="people"><a class="pp" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7"><b>TZ</b>Tzachi Zach <span>Fisher College of Business, The Ohio State University</span></a><a class="pp" style="--c:var(--me)" href="https://mrterinc.github.io/"><b>ME</b>Mert Erinc <span>BI Norwegian Business School</span></a></div><div class="band"><div class="bh"><span>When each matter was issued, and when its comments close</span>
+<span class="lg"><span><i class="d"></i>Issued (hollow: month only)</span><span><i class="k"></i>Comments close</span></span></div>
+<div class="axiswrap" data-axis-start="2026-05-01" data-axis-end="2026-11-01"><div class="axis"><div class="months-row"><span style="left:0.0%">May</span><span style="left:16.848%">Jun</span><span style="left:33.152%">Jul</span><span style="left:50.0%">Aug</span><span style="left:66.848%">Sep</span><span style="left:83.152%">Oct</span></div></div>
+<div class="lanes"><a class="lane" href="#t-s7-2026-15" data-lane="t-s7-2026-15" data-lane-kind="proposal" data-lane-by="tz" style="--c:var(--tz-band)">
+<span class="nm">Semiannual reporting</span><span class="track"><i class="iss approx" style="left:7.609%" title="Issued May 2026"></i></span></a><a class="lane" href="#t-s7-2026-18" data-lane="t-s7-2026-18" data-lane-kind="proposal" data-lane-by="tz" style="--c:var(--tz-band)">
+<span class="nm">Filer status</span><span class="track"><i class="ln" style="left:7.609%;width:35.869%"></i><i class="iss approx" style="left:7.609%" title="Issued May 2026"></i><i class="ddl" style="left:43.478%" title="Comments close 2026-07-20"></i></span></a><a class="lane" href="#t-s7-2026-19" data-lane="t-s7-2026-19" data-lane-kind="proposal" data-lane-by="tz" style="--c:var(--tz-band)">
+<span class="nm">Climate disclosure rescission</span><span class="track"><i class="ln" style="left:7.609%;width:43.478%"></i><i class="iss approx" style="left:7.609%" title="Issued May 2026"></i><i class="ddl" style="left:51.087%" title="Comments close 2026-08-03"></i></span></a><a class="lane" href="#t-sr-nyse-2026-37" data-lane="t-sr-nyse-2026-37" data-lane-kind="sro" data-lane-by="tz" style="--c:var(--tz-band)">
+<span class="nm">NYSE internal audit</span><span class="track"><i class="iss" style="left:56.522%" title="Issued 13 August 2026"></i></span></a><a class="lane" href="#t-s7-2026-27" data-lane="t-s7-2026-27" data-lane-kind="proposal" data-lane-by="me" style="--c:var(--me-band)">
+<span class="nm">Regulation Crypto Assets</span><span class="track"><i class="ln" style="left:57.609%;width:35.86899999999999%"></i><i class="iss approx" style="left:57.609%" title="Issued August 2026"></i><i class="ddl" style="left:93.478%" title="Comments close 2026-10-20"></i></span></a><a class="lane" href="#t-4-927" data-lane="t-4-927" data-lane-kind="order" data-lane-by="me" style="--c:var(--me-band)">
+<span class="nm">Innovation Exemption</span><span class="track"><i class="open-end" style="left:75.543%;right:0"></i><i class="iss" style="left:75.543%" title="Issued 17 September 2026"></i></span></a></div>
+<div class="axis" style="position:absolute;inset:0;pointer-events:none"><div class="ov"><div class="today"><span></span></div></div></div></div></div></div></section><div class="wrap"><div class="bar"><div class="grp"><span>Type</span><button data-group="kind" data-filter="all" aria-pressed="true">All</button><button data-group="kind" data-filter="proposal" aria-pressed="false">Proposals</button><button data-group="kind" data-filter="order" aria-pressed="false">Orders</button><button data-group="kind" data-filter="sro" aria-pressed="false">SRO filings</button></div><div class="grp"><span>Author</span><button data-group="by" data-filter="all" aria-pressed="true">Both</button><button data-group="by" data-filter="tz" aria-pressed="false">Tzachi Zach</button><button data-group="by" data-filter="me" aria-pressed="false">Mert Erinc</button></div><span class="count"><b id="count">6</b> trackers</span></div><section class="featured"><div><div class="lbl">Comment period open</div>
+<h2>Regulation Crypto Assets<small>S7-2026-27</small></h2><p>Would create two exemptions for selling crypto assets to the public without registration, a procedure for ending the resulting securities-law obligations, and preemption of State registration requirements.</p></div>
+<div class="right"><span class="st" data-deadline="2026-10-20"><i></i>Comments close 2026-10-20</span><a class="btn" href="https://mrterinc.github.io/sec-reg-crypto-tracker/">Open the tracker →</a></div></section>
+<div class="grid"><article class="card" id="t-s7-2026-15" data-kind="proposal" data-by="tz" style="--k:var(--k-proposal)">
+<div class="top"></div><div class="in">
+<div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-15</span></div>
+<h2>Semiannual reporting</h2><p>Would let public companies report semiannually in place of filing a Form 10-Q each quarter.</p>
+<div class="rel">Release No. 33-11414 · May 2026</div><div class="x">Also: <a href="https://tzachizach.github.io/sec-semi-annual-proposal-tracker/2018/">2018 request for comment (S7-26-18)</a></div>
+<div><span class="st closed"><i></i>Comment period closed</span></div></div>
+<div class="foot"><span class="av" style="--c:var(--tz)"><b>TZ</b>Tzachi Zach</span>
+<a class="go" href="https://tzachizach.github.io/sec-semi-annual-proposal-tracker/">Open tracker</a></div></article><article class="card" id="t-s7-2026-18" data-kind="proposal" data-by="tz" style="--k:var(--k-proposal)">
+<div class="top"></div><div class="in">
+<div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-18</span></div>
+<h2>Filer status</h2><p>Would raise the large accelerated filer public-float threshold from $700 million to $2 billion and reduce five filer categories to two.</p>
+<div class="rel">Release Nos. 33-11419; 34-105515 · May 2026</div>
+<div><span class="st" data-deadline="2026-07-20"><i></i>Comments close 2026-07-20</span></div></div>
+<div class="foot"><span class="av" style="--c:var(--tz)"><b>TZ</b>Tzachi Zach</span>
+<a class="go" href="https://tzachizach.github.io/sec-filer-status-tracker/">Open tracker</a></div></article><article class="card" id="t-s7-2026-19" data-kind="proposal" data-by="tz" style="--k:var(--k-proposal)">
+<div class="top"></div><div class="in">
+<div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-19</span></div>
+<h2>Climate disclosure rescission</h2><p>Would rescind the Commission’s 2024 climate-related disclosure rules in their entirety.</p>
+<div class="rel">Release Nos. 33-11421; 34-105572 · May 2026</div>
+<div><span class="st" data-deadline="2026-08-03"><i></i>Comments close 2026-08-03</span></div></div>
+<div class="foot"><span class="av" style="--c:var(--tz)"><b>TZ</b>Tzachi Zach</span>
+<a class="go" href="https://tzachizach.github.io/sec-climate-rescission-tracker/">Open tracker</a></div></article><article class="card" id="t-sr-nyse-2026-37" data-kind="sro" data-by="tz" style="--k:var(--k-sro)">
+<div class="top"></div><div class="in">
+<div class="meta"><span class="tag">SRO rule filing</span><span class="id">SR-NYSE-2026-37</span></div>
+<h2>NYSE internal audit</h2><p>Would extend the time a newly listed company has to establish an internal audit function from one year to five.</p>
+<div class="rel">Release No. 34-106128 · 13 August 2026</div>
+<div><span class="st plain">Notice published 13 August 2026</span></div></div>
+<div class="foot"><span class="av" style="--c:var(--tz)"><b>TZ</b>Tzachi Zach</span>
+<a class="go" href="https://tzachizach.github.io/sec-nyse-internal-audit-tracker/">Open tracker</a></div></article><article class="card" id="t-s7-2026-27" data-kind="proposal" data-by="me" style="--k:var(--k-proposal)">
+<div class="top"></div><div class="in">
+<div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-27</span></div>
+<h2>Regulation Crypto Assets</h2><p>Would create two exemptions for selling crypto assets to the public without registration, a procedure for ending the resulting securities-law obligations, and preemption of State registration requirements.</p>
+<div class="rel">Release Nos. 33-11434; 34-106150 · August 2026</div>
+<div><span class="st" data-deadline="2026-10-20"><i></i>Comments close 2026-10-20</span></div></div>
+<div class="foot"><span class="av" style="--c:var(--me)"><b>ME</b>Mert Erinc</span>
+<a class="go" href="https://mrterinc.github.io/sec-reg-crypto-tracker/">Open tracker</a></div></article><article class="card" id="t-4-927" data-kind="order" data-by="me" style="--k:var(--k-order)">
+<div class="top"></div><div class="in">
+<div class="meta"><span class="tag">SEC exemptive order</span><span class="id">4-927</span></div>
+<h2>Innovation Exemption: tokenized NMS stock</h2><p>Exempts certain venues that trade blockchain versions of US-listed stocks through automated liquidity pools from the definition of an exchange, and certain firms that supply those pools from the definition of a dealer.</p>
+<div class="rel">Release No. 34-106402 · 17 September 2026</div>
+<div><span class="st open"><i></i>Feedback invited, no closing date</span></div></div>
+<div class="foot"><span class="av" style="--c:var(--me)"><b>ME</b>Mert Erinc</span>
+<a class="go" href="https://mrterinc.github.io/sec-tokenized-stock-tracker/">Open tracker</a></div></article></div><div class="empty" id="empty" hidden>No tracker matches both filters.</div><footer>Each tracker is maintained by its author and carries its own methodology. Comments on any of them are welcome by email to the author named on it.</footer></div>
+<script>
+(function(){
+  var today = new Date(); today.setHours(0,0,0,0);
+  var fmt = new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  document.querySelectorAll('[data-deadline]').forEach(function(el){
+    var d = new Date(el.getAttribute('data-deadline')+'T00:00:00');
+    var days = Math.round((d - today)/86400000);
+    if (days >= 0) {
+      el.classList.add('open');
+      el.innerHTML = '<i></i>Open · ' + (days===0?'closes today':days+' day'+(days===1?'':'s')+' left');
+      el.title = 'Comments close ' + fmt.format(d);
+    } else {
+      el.classList.add('closed');
+      el.innerHTML = '<i></i>Closed ' + fmt.format(d);
+    }
+  });
+  document.querySelectorAll('[data-filter]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var g = btn.getAttribute('data-group'), v = btn.getAttribute('data-filter');
+      document.querySelectorAll('[data-group="'+g+'"]').forEach(function(b){b.setAttribute('aria-pressed', b===btn)});
+      var a = document.querySelector('[data-group="kind"][aria-pressed="true"]');
+      var p = document.querySelector('[data-group="by"][aria-pressed="true"]');
+      var kv = a ? a.getAttribute('data-filter') : 'all', pv = p ? p.getAttribute('data-filter') : 'all';
+      var shown = 0;
+      document.querySelectorAll('[data-kind]').forEach(function(c){
+        var ok = (kv==='all'||c.getAttribute('data-kind')===kv) && (pv==='all'||c.getAttribute('data-by')===pv);
+        c.hidden = !ok; if (ok) shown++;
+      });
+      document.querySelectorAll('[data-section]').forEach(function(s){
+        s.hidden = !s.querySelector('[data-kind]:not([hidden])');
+      });
+      document.querySelectorAll('[data-lane]').forEach(function(r){
+        var ok = (kv==='all'||r.getAttribute('data-lane-kind')===kv) && (pv==='all'||r.getAttribute('data-lane-by')===pv);
+        r.classList.toggle('dim', !ok);
+      });
+      var e = document.getElementById('empty'); if (e) e.hidden = shown > 0;
+      var n = document.getElementById('count'); if (n) n.textContent = shown;
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  // Today marker on the timeline band, placed from the axis dates.
+  document.querySelectorAll('[data-axis-start]').forEach(function(ax){
+    var a = new Date(ax.getAttribute('data-axis-start')+'T00:00:00'), b = new Date(ax.getAttribute('data-axis-end')+'T00:00:00');
+    var t = new Date(); t.setHours(0,0,0,0);
+    var m = ax.querySelector('.today'); if (!m) return;
+    if (t < a || t > b) { m.hidden = true; return; }
+    m.style.left = ((t - a) / (b - a) * 100) + '%';
+    m.querySelector('span').textContent = 'Today';
+  });
+  // The featured block names an open comment period; hide it once that period has closed.
+  document.querySelectorAll('.featured').forEach(function(f){
+    var d = f.querySelector('[data-deadline]'); if (!d) return;
+    var t = new Date(); t.setHours(0,0,0,0);
+    if (new Date(d.getAttribute('data-deadline')+'T00:00:00') < t) f.hidden = true;
+  });
+  // Clicking a lane scrolls to its card and briefly outlines it.
+  document.querySelectorAll('[data-lane]').forEach(function(r){
+    r.addEventListener('click', function(ev){
+      var c = document.getElementById(r.getAttribute('data-lane')); if (!c) return;
+      ev.preventDefault(); c.scrollIntoView({behavior:'smooth', block:'center'});
+      c.classList.add('flash'); setTimeout(function(){ c.classList.remove('flash'); }, 1400);
+    });
+  });
+})();
+</script></body></html>
