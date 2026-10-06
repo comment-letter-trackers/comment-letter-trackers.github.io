@@ -99,7 +99,20 @@ box-shadow:var(--shadow);overflow:hidden;margin:0 0 30px;display:grid;grid-templ
 @media (max-width:640px){.axis,.lane{grid-template-columns:1fr}.months-row,.axis .ov{grid-column:1}.lane{min-height:0;padding:4px 0}
 .lane .nm{padding-left:2px;font-size:12px;color:rgba(255,255,255,.8)}.track{height:20px}.band{padding:14px 12px 30px}.months-row span{font-size:10px}
 .hero .pp span{display:none}}
-:root{--tz-band:#5eead4;--me-band:#c4b5fd}</style></head>
+
+.hero .theme{position:absolute;top:18px;right:18px;z-index:3;width:38px;height:38px;border-radius:999px;cursor:pointer;
+display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);color:#fff;padding:0}
+.hero .theme:hover{background:rgba(255,255,255,.18)}
+.hero .theme:focus-visible{outline:2px solid #fbbf24;outline-offset:2px}
+.theme svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme .i-moon{fill:currentColor;stroke:none}
+.theme .i-sun{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .theme .i-sun{display:block}:root:not([data-theme=light]) .theme .i-moon{display:none}}
+:root[data-theme=dark] .theme .i-sun{display:block}:root[data-theme=dark] .theme .i-moon{display:none}
+
+:root[data-theme=dark]{--bg:#0c1117;--surface:#141b23;--ink:#e8edf2;--ink2:#a9b4c0;--mute:#7b8794;--line:#25303b;
+--hero1:#0b1f36;--hero2:#123a5a;--k-proposal:#6ea2f5;--k-order:#e6a24f;--k-sro:#4fc28c;--tz:#39b7c2;--me:#a587ee;--open:#4fc28c;--shadow:none}
+:root{--tz-band:#5eead4;--me-band:#c4b5fd}</style><script>(function(){try{var t=localStorage.getItem('hub-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script></head>
 <body><section class="hero"><div class="wrap">
 <span class="eyebrow">Comment-letter trackers</span><h1>SEC Comment-Letter Trackers</h1>
 <p>Public trackers of the comment files on recent SEC rulemakings, orders and rule filings. Each one reads every letter on its file and records what the letter asks for, with the evidence behind each call.</p><div class="people"><a class="pp" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach <span>Fisher College of Business, The Ohio State University</span></a><a class="pp" style="--c:var(--me)" href="https://mrterinc.github.io/" target="_blank" rel="noopener"><b>ME</b>Mert Erinc <span>BI Norwegian Business School</span></a></div><div class="band"><div class="bh"><span>When each matter was issued, and when its comments close</span>
@@ -112,7 +125,7 @@ box-shadow:var(--shadow);overflow:hidden;margin:0 0 30px;display:grid;grid-templ
 <span class="nm">NYSE internal audit</span><span class="track"><i class="iss" style="left:56.522%" title="Issued 13 August 2026"></i></span></a><a class="lane" href="#t-s7-2026-27" data-lane="t-s7-2026-27" data-lane-kind="proposal" data-lane-by="me" style="--c:var(--me-band)">
 <span class="nm">Regulation Crypto Assets</span><span class="track"><i class="ln" style="left:59.239%;width:34.239%"></i><i class="iss" style="left:59.239%" title="Issued 18 August 2026"></i><i class="ddl" style="left:93.478%" title="Comments close 2026-10-20"></i></span></a><a class="lane" href="#t-4-927" data-lane="t-4-927" data-lane-kind="order" data-lane-by="me" style="--c:var(--me-band)">
 <span class="nm">Innovation Exemption</span><span class="track"><i class="open-end" style="left:75.543%;right:0"></i><i class="iss" style="left:75.543%" title="Issued 17 September 2026"></i></span></a></div>
-<div class="axis" style="position:absolute;inset:0;pointer-events:none"><div class="ov"><div class="today"><span></span></div></div></div></div></div></div></section><div class="wrap"><div class="bar"><div class="grp"><span>Type</span><button data-group="kind" data-filter="all" aria-pressed="true">All</button><button data-group="kind" data-filter="proposal" aria-pressed="false">Proposals</button><button data-group="kind" data-filter="order" aria-pressed="false">Orders</button><button data-group="kind" data-filter="sro" aria-pressed="false">SRO filings</button></div><div class="grp"><span>Author</span><button data-group="by" data-filter="all" aria-pressed="true">Both</button><button data-group="by" data-filter="tz" aria-pressed="false">Tzachi Zach</button><button data-group="by" data-filter="me" aria-pressed="false">Mert Erinc</button></div><span class="count"><b id="count">6</b> trackers</span></div><section class="featured"><div><div class="lbl">Comment period open</div>
+<div class="axis" style="position:absolute;inset:0;pointer-events:none"><div class="ov"><div class="today"><span></span></div></div></div></div></div></div><button class="theme" type="button" aria-label="Switch colour theme" title="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button></section><div class="wrap"><div class="bar"><div class="grp"><span>Type</span><button data-group="kind" data-filter="all" aria-pressed="true">All</button><button data-group="kind" data-filter="proposal" aria-pressed="false">Proposals</button><button data-group="kind" data-filter="order" aria-pressed="false">Orders</button><button data-group="kind" data-filter="sro" aria-pressed="false">SRO filings</button></div><div class="grp"><span>Author</span><button data-group="by" data-filter="all" aria-pressed="true">Both</button><button data-group="by" data-filter="tz" aria-pressed="false">Tzachi Zach</button><button data-group="by" data-filter="me" aria-pressed="false">Mert Erinc</button></div><span class="count"><b id="count">6</b> trackers</span></div><section class="featured"><div><div class="lbl">Comment period open</div>
 <h2>Regulation Crypto Assets<small>S7-2026-27</small></h2><p>Would create two exemptions for selling crypto assets to the public without registration, a procedure for ending the resulting securities-law obligations, and preemption of State registration requirements.</p></div>
 <div class="right"><span class="st" data-deadline="2026-10-20"><i></i>Comments close 2026-10-20</span><a class="btn" href="https://mrterinc.github.io/sec-reg-crypto-tracker/" target="_blank" rel="noopener">Open the tracker →</a></div></section>
 <div class="grid"><article class="card" id="t-s7-2026-15" data-kind="proposal" data-by="tz" style="--k:var(--k-proposal)">
@@ -133,14 +146,14 @@ box-shadow:var(--shadow);overflow:hidden;margin:0 0 30px;display:grid;grid-templ
 <div class="top"></div><div class="in">
 <div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-19</span></div>
 <h2>Climate disclosure rescission</h2><p>Would rescind the Commission’s 2024 climate-related disclosure rules in their entirety.</p>
-<div class="rel">Release Nos. 33-11421; 34-105572 · 29 May 2026</div>
+<div class="rel">Release Nos. 33-11421; 34-105572 · 29 May 2026</div><div class="x">Thanks to Sarah McVay</div>
 <div><span class="st" data-deadline="2026-08-03"><i></i>Comments close 2026-08-03</span></div></div>
 <div class="foot"><span class="av" style="--c:var(--tz)"><b>TZ</b>Tzachi Zach</span>
 <a class="go" href="https://tzachizach.github.io/sec-climate-rescission-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article><article class="card" id="t-sr-nyse-2026-37" data-kind="sro" data-by="tz" style="--k:var(--k-sro)">
 <div class="top"></div><div class="in">
 <div class="meta"><span class="tag">SRO rule filing</span><span class="id">SR-NYSE-2026-37</span></div>
 <h2>NYSE internal audit</h2><p>Would extend the time a newly listed company has to establish an internal audit function from one year to five.</p>
-<div class="rel">Release No. 34-106128 · 13 August 2026</div>
+<div class="rel">Release No. 34-106128 · 13 August 2026</div><div class="x">Thanks to Sarah McVay</div>
 <div><span class="st plain">Notice published 13 August 2026</span></div></div>
 <div class="foot"><span class="av" style="--c:var(--tz)"><b>TZ</b>Tzachi Zach</span>
 <a class="go" href="https://tzachizach.github.io/sec-nyse-internal-audit-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article><article class="card" id="t-s7-2026-27" data-kind="proposal" data-by="me" style="--k:var(--k-proposal)">
@@ -224,6 +237,22 @@ box-shadow:var(--shadow);overflow:hidden;margin:0 0 30px;display:grid;grid-templ
       c.classList.add('flash'); setTimeout(function(){ c.classList.remove('flash'); }, 1400);
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var b = document.querySelector('.theme'); if (!b) return;
+  var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function current(){ var t = document.documentElement.getAttribute('data-theme'); return t || (mq && mq.matches ? 'dark' : 'light'); }
+  function label(){ var c = current(); b.setAttribute('aria-label', c === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'); b.title = b.getAttribute('aria-label'); }
+  b.addEventListener('click', function(){
+    var next = current() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('hub-theme', next); } catch(e) {}
+    label();
+  });
+  if (mq && mq.addEventListener) mq.addEventListener('change', label);
+  label();
 })();
 </script><!-- Default Statcounter code for Semi-Annual Tracker
 https://tzachizach.github.io/sec-semi-annual-proposal-tracker/index.html
