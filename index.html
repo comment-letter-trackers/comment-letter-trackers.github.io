@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SEC Comment-Letter Trackers</title>
+<title>SEC Comment Letter Trackers</title>
 <meta name="description" content="Public trackers of the comment files on recent SEC rulemakings, orders and rule filings. Each one reads every letter on its file and records what the letter asks for, with the evidence behind each call.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f6f7f9;--surface:#fff;--ink:#0f1720;--ink2:#4a5562;--mute:#7c8794;--line:#e3e7ec;
 --hero1:#0f2a4a;--hero2:#16486f;--heroink:#fff;
---k-proposal:#2a6fdb;--k-order:#c7781a;--k-sro:#1f8a5b;--tz:#0e7c86;--me:#6b46c1;--open:#16794a;--shadow:0 1px 2px rgba(15,23,32,.06),0 8px 24px rgba(15,23,32,.06)}
+--k-proposal:#2a6fdb;--k-order:#c7781a;--k-sro:#1f8a5b;--tz:#0e7c86;--me:#6b46c1;--sm:#b4536a;--open:#16794a;--shadow:0 1px 2px rgba(15,23,32,.06),0 8px 24px rgba(15,23,32,.06)}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0c1117;--surface:#141b23;--ink:#e8edf2;--ink2:#a9b4c0;--mute:#7b8794;--line:#25303b;
---hero1:#0b1f36;--hero2:#123a5a;--k-proposal:#6ea2f5;--k-order:#e6a24f;--k-sro:#4fc28c;--tz:#39b7c2;--me:#a587ee;--open:#4fc28c;--shadow:none}}
+--hero1:#0b1f36;--hero2:#123a5a;--k-proposal:#6ea2f5;--k-order:#e6a24f;--k-sro:#4fc28c;--tz:#39b7c2;--me:#a587ee;--sm:#e48aa0;--open:#4fc28c;--shadow:none}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}
 a{color:inherit}.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
 .hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:var(--heroink);position:relative;overflow:hidden}
@@ -68,6 +68,7 @@ box-shadow:var(--shadow);overflow:hidden;margin:0 0 30px;display:grid;grid-templ
 .featured[hidden]{display:none}
 .empty{padding:28px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:14px;margin-bottom:40px}
 .card{scroll-margin-top:24px}
+.avs{display:flex;flex-wrap:wrap;gap:6px 14px}.foot{flex-wrap:wrap}.foot .go{margin-left:auto}
 a.av{text-decoration:none}a.av:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .card.flash{outline:2px solid var(--k);outline-offset:3px}
 @media (max-width:760px){.featured{grid-template-columns:1fr}.featured .right{justify-items:start;text-align:left}}
@@ -112,10 +113,10 @@ display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px soli
 :root[data-theme=dark] .theme .i-sun{display:block}:root[data-theme=dark] .theme .i-moon{display:none}
 
 :root[data-theme=dark]{--bg:#0c1117;--surface:#141b23;--ink:#e8edf2;--ink2:#a9b4c0;--mute:#7b8794;--line:#25303b;
---hero1:#0b1f36;--hero2:#123a5a;--k-proposal:#6ea2f5;--k-order:#e6a24f;--k-sro:#4fc28c;--tz:#39b7c2;--me:#a587ee;--open:#4fc28c;--shadow:none}
+--hero1:#0b1f36;--hero2:#123a5a;--k-proposal:#6ea2f5;--k-order:#e6a24f;--k-sro:#4fc28c;--tz:#39b7c2;--me:#a587ee;--sm:#e48aa0;--open:#4fc28c;--shadow:none}
 :root{--tz-band:#5eead4;--me-band:#c4b5fd}</style><script>(function(){try{var t=localStorage.getItem('hub-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script></head>
 <body><section class="hero"><div class="wrap">
-<span class="eyebrow">Comment-letter trackers</span><h1>SEC Comment-Letter Trackers</h1>
+<span class="eyebrow">Comment letter trackers</span><h1>SEC Comment Letter Trackers</h1>
 <p>Public trackers of the comment files on recent SEC rulemakings, orders and rule filings. Each one reads every letter on its file and records what the letter asks for, with the evidence behind each call.</p><div class="people"><a class="pp" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach <span>Fisher College of Business, The Ohio State University</span></a><a class="pp" style="--c:var(--me)" href="https://mrterinc.github.io/" target="_blank" rel="noopener"><b>ME</b>Mert Erinc <span>BI Norwegian Business School</span></a></div><div class="band"><div class="bh"><span>When each matter was issued, and when its comments close</span>
 <span class="lg"><span><i class="d"></i>Issued</span><span><i class="k"></i>Comments close</span></span></div>
 <div class="axiswrap" data-axis-start="2026-05-01" data-axis-end="2026-11-01"><div class="axis"><div class="months-row"><span style="left:0.0%">May</span><span style="left:16.848%">Jun</span><span style="left:33.152%">Jul</span><span style="left:50.0%">Aug</span><span style="left:66.848%">Sep</span><span style="left:83.152%">Oct</span></div></div>
@@ -135,42 +136,42 @@ display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px soli
 <h2>Semiannual reporting</h2><p>Would let public companies report semiannually in place of filing a Form 10-Q each quarter.</p>
 <div class="rel">Release No. 33-11414 · 5 May 2026</div><div class="x">Also: <a href="https://tzachizach.github.io/sec-semi-annual-proposal-tracker/2018/" target="_blank" rel="noopener">2018 request for comment (S7-26-18)</a></div>
 <div><span class="st" data-deadline="2026-07-06"><i></i>Comments close 2026-07-06</span></div></div>
-<div class="foot"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a>
+<div class="foot"><span class="avs"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a></span>
 <a class="go" href="https://tzachizach.github.io/sec-semi-annual-proposal-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article><article class="card" id="t-s7-2026-18" data-kind="proposal" data-by="tz" style="--k:var(--k-proposal)">
 <div class="top"></div><div class="in">
 <div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-18</span></div>
 <h2>Filer status</h2><p>Would raise the large accelerated filer public-float threshold from $700 million to $2 billion and reduce five filer categories to two.</p>
 <div class="rel">Release Nos. 33-11419; 34-105515 · 19 May 2026</div>
 <div><span class="st" data-deadline="2026-07-20"><i></i>Comments close 2026-07-20</span></div></div>
-<div class="foot"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a>
+<div class="foot"><span class="avs"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a></span>
 <a class="go" href="https://tzachizach.github.io/sec-filer-status-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article><article class="card" id="t-s7-2026-19" data-kind="proposal" data-by="tz" style="--k:var(--k-proposal)">
 <div class="top"></div><div class="in">
 <div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-19</span></div>
 <h2>Climate disclosure rescission</h2><p>Would rescind the Commission’s 2024 climate-related disclosure rules in their entirety.</p>
-<div class="rel">Release Nos. 33-11421; 34-105572 · 29 May 2026</div><div class="x"><a href="https://foster.uw.edu/faculty-research/directory/sarah-mcvay/" target="_blank" rel="noopener">Sarah McVay</a> helped significantly in building the classification scheme — the rationale taxonomy used here reflects her detailed review of an earlier version.</div>
+<div class="rel">Release Nos. 33-11421; 34-105572 · 29 May 2026</div><div class="x"><a href="https://foster.uw.edu/faculty-research/directory/sarah-mcvay/" target="_blank" rel="noopener">Sarah McVay</a> helped significantly in building the classification scheme.</div>
 <div><span class="st" data-deadline="2026-08-03"><i></i>Comments close 2026-08-03</span></div></div>
-<div class="foot"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a>
+<div class="foot"><span class="avs"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a><a class="av" style="--c:var(--sm)" href="https://foster.uw.edu/faculty-research/directory/sarah-mcvay/" target="_blank" rel="noopener"><b>SM</b>Sarah McVay</a></span>
 <a class="go" href="https://tzachizach.github.io/sec-climate-rescission-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article><article class="card" id="t-sr-nyse-2026-37" data-kind="sro" data-by="tz" style="--k:var(--k-sro)">
 <div class="top"></div><div class="in">
 <div class="meta"><span class="tag">SRO rule filing</span><span class="id">SR-NYSE-2026-37</span></div>
 <h2>NYSE internal audit</h2><p>Would extend the time a newly listed company has to establish an internal audit function from one year to five.</p>
 <div class="rel">Release No. 34-106128 · 13 August 2026</div><div class="x"><a href="https://foster.uw.edu/faculty-research/directory/sarah-mcvay/" target="_blank" rel="noopener">Sarah McVay</a> helped significantly in building the classification scheme.</div>
 <div><span class="st plain">Notice published 13 August 2026</span></div></div>
-<div class="foot"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a>
+<div class="foot"><span class="avs"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a><a class="av" style="--c:var(--sm)" href="https://foster.uw.edu/faculty-research/directory/sarah-mcvay/" target="_blank" rel="noopener"><b>SM</b>Sarah McVay</a></span>
 <a class="go" href="https://tzachizach.github.io/sec-nyse-internal-audit-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article><article class="card" id="t-s7-2026-27" data-kind="proposal" data-by="me" style="--k:var(--k-proposal)">
 <div class="top"></div><div class="in">
 <div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-27</span></div>
 <h2>Regulation Crypto Assets</h2><p>Would create two exemptions for selling crypto assets to the public without registration, a procedure for ending the resulting securities-law obligations, and preemption of State registration requirements.</p>
 <div class="rel">Release Nos. 33-11434; 34-106150 · 18 August 2026</div>
 <div><span class="st" data-deadline="2026-10-20"><i></i>Comments close 2026-10-20</span></div></div>
-<div class="foot"><a class="av" style="--c:var(--me)" href="https://mrterinc.github.io/" target="_blank" rel="noopener"><b>ME</b>Mert Erinc</a>
+<div class="foot"><span class="avs"><a class="av" style="--c:var(--me)" href="https://mrterinc.github.io/" target="_blank" rel="noopener"><b>ME</b>Mert Erinc</a></span>
 <a class="go" href="https://mrterinc.github.io/sec-reg-crypto-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article><article class="card" id="t-4-927" data-kind="order" data-by="me" style="--k:var(--k-order)">
 <div class="top"></div><div class="in">
 <div class="meta"><span class="tag">SEC exemptive order</span><span class="id">4-927</span></div>
 <h2>Innovation Exemption: tokenized NMS stock</h2><p>Exempts certain venues that trade blockchain versions of US-listed stocks through automated liquidity pools from the definition of an exchange, and certain firms that supply those pools from the definition of a dealer.</p>
 <div class="rel">Release No. 34-106402 · 17 September 2026</div>
 <div><span class="st open"><i></i>Feedback invited, no closing date</span></div></div>
-<div class="foot"><a class="av" style="--c:var(--me)" href="https://mrterinc.github.io/" target="_blank" rel="noopener"><b>ME</b>Mert Erinc</a>
+<div class="foot"><span class="avs"><a class="av" style="--c:var(--me)" href="https://mrterinc.github.io/" target="_blank" rel="noopener"><b>ME</b>Mert Erinc</a></span>
 <a class="go" href="https://mrterinc.github.io/sec-tokenized-stock-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article></div><div class="empty" id="empty" hidden>No tracker matches both filters.</div><footer>Each tracker is maintained by its author and carries its own methodology. Comments on any of them are welcome by email to the author named on it.</footer></div>
 <script>
 (function(){
