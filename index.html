@@ -71,6 +71,9 @@ box-shadow:var(--shadow);overflow:hidden;margin:0 0 30px;display:grid;grid-templ
 .avs{display:flex;flex-wrap:wrap;gap:6px 14px}.foot{flex-wrap:wrap}.foot .go{margin-left:auto}
 a.av{text-decoration:none}a.av:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .card.flash{outline:2px solid var(--k);outline-offset:3px}
+.late-note{display:flex;align-items:flex-start;gap:8px;margin-top:8px;font-size:13px;line-height:1.45;color:var(--ink2)}
+.late-note i{flex:none;width:14px;height:0;margin-top:9px;border-top:3px dotted var(--mute)}
+.late-note em{font-style:normal;color:var(--mute);white-space:nowrap}
 @media (max-width:760px){.featured{grid-template-columns:1fr}.featured .right{justify-items:start;text-align:left}}
 
 .band{margin-top:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px 18px 30px}
@@ -94,6 +97,10 @@ a.av{text-decoration:none}a.av:hover{color:var(--ink);text-decoration:underline;
 .track .iss{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--c);transform:translate(-50%,-50%);box-shadow:0 0 0 3px rgba(0,0,0,.25)}
 .track .ddl{position:absolute;top:50%;width:10px;height:10px;border:2px solid var(--c);background:var(--hero1);transform:translate(-50%,-50%) rotate(45deg)}
 .track .open-end{position:absolute;top:50%;height:2px;background:repeating-linear-gradient(90deg,var(--c) 0 4px,transparent 4px 8px);transform:translateY(-50%)}
+.track .late{position:absolute;top:50%;height:2px;transform:translateY(-50%);
+height:3px;background:radial-gradient(circle,var(--c) 1.3px,transparent 1.6px) 0 50%/6px 3px repeat-x;opacity:.9}
+.track .late-end{position:absolute;top:50%;width:8px;height:8px;border-radius:50%;border:2px solid var(--c);background:var(--hero1);transform:translate(-50%,-50%)}
+.lg .l{width:18px;height:0;border-top:3px dotted #fff;opacity:.85;vertical-align:3px!important}
 .today{position:absolute;top:22px;bottom:0;width:0;border-left:2px solid #fbbf24;z-index:2;pointer-events:none}
 .today span{position:absolute;bottom:-20px;left:-18px;font:600 10.5px Inter;color:#fbbf24;letter-spacing:.06em;text-transform:uppercase}
 .axiswrap{position:relative}
@@ -117,11 +124,11 @@ display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px soli
 :root{--tz-band:#5eead4;--me-band:#c4b5fd}</style><script>(function(){try{var t=localStorage.getItem('hub-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script></head>
 <body><section class="hero"><div class="wrap">
 <span class="eyebrow">Comment letter trackers</span><h1>SEC Comment Letter Trackers</h1>
-<p>Public trackers of the comment files on recent SEC rulemakings, orders and rule filings. Each one reads every letter on its file and records what the letter asks for, with the evidence behind each call.</p><div class="people"><a class="pp" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach <span>Fisher College of Business, The Ohio State University</span></a><a class="pp" style="--c:var(--me)" href="https://mrterinc.github.io/" target="_blank" rel="noopener"><b>ME</b>Mert Erinc <span>BI Norwegian Business School</span></a></div><div class="band"><div class="bh"><span>When each matter was issued, and when its comments close</span>
-<span class="lg"><span><i class="d"></i>Issued</span><span><i class="k"></i>Comments close</span></span></div>
+<p>Public trackers of the comment files on recent SEC rulemakings, orders and rule filings. Each one reads every letter on its file and records what the letter asks for, with the evidence behind each call.</p><div class="people"><a class="pp" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach <span>Fisher College of Business, The Ohio State University</span></a><a class="pp" style="--c:var(--me)" href="https://mrterinc.github.io/" target="_blank" rel="noopener"><b>ME</b>Mert Erinc <span>BI Norwegian Business School</span></a></div><div class="band"><div class="bh"><span>When each matter was issued, when its comments close, and letters posted since</span>
+<span class="lg"><span><i class="d"></i>Issued</span><span><i class="k"></i>Comments close</span><span><i class="l"></i>Letters still posted after close</span></span></div>
 <div class="axiswrap" data-axis-start="2026-05-01" data-axis-end="2026-11-01"><div class="axis"><div class="months-row"><span style="left:0.0%">May</span><span style="left:16.848%">Jun</span><span style="left:33.152%">Jul</span><span style="left:50.0%">Aug</span><span style="left:66.848%">Sep</span><span style="left:83.152%">Oct</span></div></div>
 <div class="lanes"><a class="lane" href="#t-s7-2026-15" data-lane="t-s7-2026-15" data-lane-kind="proposal" data-lane-by="tz" style="--c:var(--tz-band)">
-<span class="nm">Semiannual reporting</span><span class="track"><i class="ln" style="left:2.174%;width:33.696%"></i><i class="iss" style="left:2.174%" title="Issued 5 May 2026"></i><i class="ddl" style="left:35.87%" title="Comments close 2026-07-06"></i></span></a><a class="lane" href="#t-s7-2026-18" data-lane="t-s7-2026-18" data-lane-kind="proposal" data-lane-by="tz" style="--c:var(--tz-band)">
+<span class="nm">Semiannual reporting</span><span class="track"><i class="ln" style="left:2.174%;width:33.696%"></i><i class="iss" style="left:2.174%" title="Issued 5 May 2026"></i><i class="ddl" style="left:35.87%" title="Comments close 2026-07-06"></i><i class="late" style="left:35.87%;width:49.455999999999996%" title="Comments closed 6 Jul 2026; the SEC is still posting letters, newest dated 5 Oct 2026 (as of 12 Oct 2026)"></i><i class="late-end" style="left:85.326%" title="Comments closed 6 Jul 2026; the SEC is still posting letters, newest dated 5 Oct 2026 (as of 12 Oct 2026)"></i></span></a><a class="lane" href="#t-s7-2026-18" data-lane="t-s7-2026-18" data-lane-kind="proposal" data-lane-by="tz" style="--c:var(--tz-band)">
 <span class="nm">Filer status</span><span class="track"><i class="ln" style="left:9.783%;width:33.695%"></i><i class="iss" style="left:9.783%" title="Issued 19 May 2026"></i><i class="ddl" style="left:43.478%" title="Comments close 2026-07-20"></i></span></a><a class="lane" href="#t-s7-2026-19" data-lane="t-s7-2026-19" data-lane-kind="proposal" data-lane-by="tz" style="--c:var(--tz-band)">
 <span class="nm">Climate disclosure rescission</span><span class="track"><i class="ln" style="left:15.217%;width:35.870000000000005%"></i><i class="iss" style="left:15.217%" title="Issued 29 May 2026"></i><i class="ddl" style="left:51.087%" title="Comments close 2026-08-03"></i></span></a><a class="lane" href="#t-sr-nyse-2026-37" data-lane="t-sr-nyse-2026-37" data-lane-kind="sro" data-lane-by="tz" style="--c:var(--tz-band)">
 <span class="nm">NYSE internal audit</span><span class="track"><i class="iss" style="left:56.522%" title="Issued 13 August 2026"></i></span></a><a class="lane" href="#t-s7-2026-27" data-lane="t-s7-2026-27" data-lane-kind="proposal" data-lane-by="me" style="--c:var(--me-band)">
@@ -135,7 +142,7 @@ display:grid;place-items:center;background:rgba(255,255,255,.10);border:1px soli
 <div class="meta"><span class="tag">SEC proposal</span><span class="id">S7-2026-15</span></div>
 <h2>Semiannual reporting</h2><p>Would let public companies report semiannually in place of filing a Form 10-Q each quarter.</p>
 <div class="rel">Release No. 33-11414 · 5 May 2026</div><div class="x">Also: <a href="https://tzachizach.github.io/sec-semi-annual-proposal-tracker/2018/" target="_blank" rel="noopener">2018 request for comment (S7-26-18)</a></div>
-<div><span class="st" data-deadline="2026-07-06"><i></i>Comments close 2026-07-06</span></div></div>
+<div><span class="st" data-deadline="2026-07-06"><i></i>Comments close 2026-07-06</span><div class="late-note"><i></i><span>Letters still being posted after the close. Newest dated 5 Oct 2026 <em>(as of 12 Oct 2026)</em></span></div></div></div>
 <div class="foot"><span class="avs"><a class="av" style="--c:var(--tz)" href="https://fisher.osu.edu/people/zach.7" target="_blank" rel="noopener"><b>TZ</b>Tzachi Zach</a></span>
 <a class="go" href="https://tzachizach.github.io/sec-semi-annual-proposal-tracker/" target="_blank" rel="noopener">Open tracker</a></div></article><article class="card" id="t-s7-2026-18" data-kind="proposal" data-by="tz" style="--k:var(--k-proposal)">
 <div class="top"></div><div class="in">
